@@ -25,7 +25,6 @@ public final class SplendorGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		SplendorPanel panel = new SplendorPanel();
-//		panel.setPreferredSize(new Dimension(1000, 600));
 		frame.getContentPane().add(panel);
 		frame.setResizable(true);
 		frame.pack();
