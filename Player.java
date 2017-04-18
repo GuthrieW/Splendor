@@ -1,4 +1,4 @@
-package splendor;
+package Splendor;
 
 /**********************************************************************
  * This class maintains Player objects.

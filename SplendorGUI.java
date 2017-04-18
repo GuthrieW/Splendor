@@ -1,4 +1,4 @@
-package splendor;
+package Splendor;
 
 import javax.swing.JFrame;
 
