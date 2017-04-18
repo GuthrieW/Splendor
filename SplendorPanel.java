@@ -1,15 +1,23 @@
 package splendor;
 
 import java.awt.Color;
+import java.awt.Desktop;
 //import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 //import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -400,6 +408,9 @@ public class SplendorPanel extends JPanel {
 		bottomPanel.setLayout(new GridLayout(1, 2));
 		bottomPanel.add(actionPanel);
 		bottomPanel.add(players);
+		
+		addKeyListener(listener);
+		setFocusable(true);
 		add(topPanel);
 		add(bottomPanel);
 	}
@@ -1858,7 +1869,7 @@ public class SplendorPanel extends JPanel {
 	/**********************************************************************
 	 * ActionListener Class.
 	 **********************************************************************/
-	private class ButtonListener implements ActionListener {
+	private class ButtonListener implements ActionListener, KeyListener {
 		/** whether or not turn is completed. */
 		private boolean turnTaken = false;
 		@Override
@@ -1975,5 +1986,24 @@ public class SplendorPanel extends JPanel {
 				}
 			}
 		}
+		@Override
+		public void keyTyped(final KeyEvent e) {
+			if (e.getKeyChar() == KeyEvent.VK_H) {
+				try {
+					Desktop.getDesktop().open(new File("help.txt"));
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "Could not find help file", "ERROR: File not found", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "Key Typed: " + e.getKeyChar());
+			}
+
+		}
+		@Override
+		public void keyPressed(KeyEvent e) { }
+		@Override
+		public void keyReleased(KeyEvent e) { }
 	}
 }

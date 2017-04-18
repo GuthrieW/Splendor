@@ -1,7 +1,5 @@
 package splendor;
 
-//import java.awt.Dimension;
-
 import javax.swing.JFrame;
 
 /**********************************************************************
@@ -9,7 +7,6 @@ import javax.swing.JFrame;
  * @author David Brown, Wesley Guthrie
  **********************************************************************/
 public final class SplendorGUI {
-
 	/**
 	 * This does nothing and cannot be called outside the class.
 	 */
@@ -23,7 +20,7 @@ public final class SplendorGUI {
 	public static void main(final String[] args) {
 		JFrame frame = new JFrame("Splendor");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		SplendorPanel panel = new SplendorPanel();
 		frame.getContentPane().add(panel);
 		frame.setResizable(true);
