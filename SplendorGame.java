@@ -1,4 +1,4 @@
-package splendor;
+package Splendor;
 
 //import java.awt.Color;
 //import java.awt.Font;

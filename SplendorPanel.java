@@ -1,4 +1,4 @@
-package splendor;
+package Splendor;
 
 import java.awt.Color;
 import java.awt.Desktop;
@@ -12,9 +12,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -23,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 
 /**********************************************************************
  * This class handles the logic for the GUI class for the game
@@ -1988,18 +1991,37 @@ public class SplendorPanel extends JPanel {
 		}
 		@Override
 		public void keyTyped(final KeyEvent e) {
-			if (e.getKeyChar() == KeyEvent.VK_H) {
+			int code = e.getKeyChar();
+			if (code == KeyEvent.VK_H) {
 				try {
-					Desktop.getDesktop().open(new File("help.txt"));
+					JFrame frame = new JFrame("Help");
+					JPanel panel = new JPanel();
+					JTextArea area = new JTextArea();
+//					area.setEditable(false);
+					panel.add(area);
+					frame.add(panel);
+					Scanner scan = new Scanner(new File("help.txt"));
+					String content = "";
+					while (scan.hasNextLine()) {
+						content += scan.nextLine();
+					}
+					area.setText(content);
+					scan.close();
+					frame.pack();
+					frame.setVisible(true);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null, "Could not find help file", "ERROR: File not found", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
-			} else {
-				JOptionPane.showMessageDialog(null, "Key Typed: " + e.getKeyChar());
 			}
 
+			if (code == KeyEvent.VK_Q) {
+				int decision = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Quit", JOptionPane.INFORMATION_MESSAGE);
+				if (decision == JOptionPane.OK_OPTION) {
+					System.exit(0);
+				}
+			}
 		}
 		@Override
 		public void keyPressed(KeyEvent e) { }
