@@ -306,8 +306,6 @@ public class SplendorPanel extends JPanel {
 		actionPanel.setLayout(new GridLayout(2, 1));
 		JPanel actionButtons = new JPanel();
 		actionButtons.setLayout(new GridLayout(1, FIVE));
-//		JPanel actionFields = new JPanel();
-//		actionFields.setLayout(new GridLayout(1, FIVE));
 		JPanel actionPickChips = new JPanel();
 		actionPickChips.setLayout(new GridLayout(1, 1));
 		chipsAndTextSetup();
@@ -317,14 +315,8 @@ public class SplendorPanel extends JPanel {
 		actionButtons.add(greenChips);
 		actionButtons.add(blackChips);
 		actionButtons.add(whiteChips);
-		//		actionFields.add(redText);
-		//		actionFields.add(blueText);
-		//		actionFields.add(greenText);
-		//		actionFields.add(blackText);
-		//		actionFields.add(whiteText);
 		actionPickChips.add(pickChips);
 		actionPanel.add(actionButtons);
-//		actionPanel.add(actionFields);
 		actionPanel.add(actionPickChips);
 		// set the layout for buttonPanel
 		JPanel cardPanel = new JPanel();
@@ -693,22 +685,6 @@ public class SplendorPanel extends JPanel {
 		whiteChips.setFont(new Font("Monospaced", Font.PLAIN, TWENTY));
 		whiteChips.setBackground(Color.WHITE);
 		whiteChips.setEnabled(false);
-
-		//		redText = new JTextField("0");
-		//		redText.setHorizontalAlignment(JTextField.CENTER);
-		//		redText.setFont(new Font("Monospaced", Font.PLAIN, TWENTY));
-		//		blueText = new JTextField("0");
-		//		blueText.setHorizontalAlignment(JTextField.CENTER);
-		//		blueText.setFont(new Font("Monospaced", Font.PLAIN, TWENTY));
-		//		greenText = new JTextField("0");
-		//		greenText.setHorizontalAlignment(JTextField.CENTER);
-		//		greenText.setFont(new Font("Monospaced", Font.PLAIN, TWENTY));
-		//		blackText = new JTextField("0");
-		//		blackText.setHorizontalAlignment(JTextField.CENTER);
-		//		blackText.setFont(new Font("Monospaced", Font.PLAIN, TWENTY));
-		//		whiteText = new JTextField("0");
-		//		whiteText.setHorizontalAlignment(JTextField.CENTER);
-		//		whiteText.setFont(new Font("Monospaced", Font.PLAIN, TWENTY));
 	}
 
 	/**********************************************************************
@@ -1734,28 +1710,15 @@ public class SplendorPanel extends JPanel {
 		JOptionPane.showConfirmDialog(null, myPanel,
 				"What Chips Do You Want?",
 				JOptionPane.OK_CANCEL_OPTION);
+		// convert the text to integers
+		// catch the error if the player
+		// entered non integer text
 		try {
 			pickRed = Integer.parseInt(redField.getText());
 			pickBlue = Integer.parseInt(blueField.getText());
 			pickGreen = Integer.parseInt(greenField.getText());
 			pickBlack = Integer.parseInt(blackField.getText());
 			pickWhite = Integer.parseInt(whiteField.getText());
-
-			// extract the chip amounts from the textfields
-			//		String sRed = redText.getText();
-			//		String sBlue = blueText.getText();
-			//		String sGreen = greenText.getText();
-			//		String sBlack = blackText.getText();
-			//		String sWhite = whiteText.getText();
-			//		try {
-			// convert the text to integers
-			// catch the error if the player
-			// entered non integer text
-			//			pickRed = Integer.parseInt(tempRed);
-			//			pickBlue = Integer.parseInt(sBlue);
-			//			pickGreen = Integer.parseInt(sGreen);
-			//			pickBlack = Integer.parseInt(sBlack);
-			//			pickWhite = Integer.parseInt(sWhite);
 
 			// call the pick up chips method
 			turn = game.pickUpChips(pickRed,
@@ -2010,12 +1973,6 @@ public class SplendorPanel extends JPanel {
 			if (game.getStatus() == GameStatus.WON) {
 				endGame();
 			}
-			// reset the buy chip text areas to 0
-			//			redText.setText("0");
-			//			blueText.setText("0");
-			//			greenText.setText("0");
-			//			blackText.setText("0");
-			//			whiteText.setText("0");
 			// update the bank chip amounts
 			redChips.setText(Integer.toString(game.getRedChips()));
 			blueChips.setText(Integer.toString(
