@@ -23,7 +23,7 @@ public class SplendorTest {
 	public void tooFewPlayers() {
 		new SplendorGame(1);
 	}
-
+//
 	/** tests for the right amount of chips. */
 	@Test
 	public void getChipMethods() {
@@ -50,78 +50,6 @@ public class SplendorTest {
 		assertEquals(7, tempGame.getWhiteChips());
 	}
 
-	/** tests for the right amount of chips. */
-	@Test
-	public void testPickUpChips() {
-		SplendorGame tempGame = new SplendorGame(2);
-
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(2, 1, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 2, 1, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 2, 1, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 2, 1));
-		assertFalse(tempGame.pickUpChips(1, 0, 0, 0, 2));
-
-		tempGame.setRedChips(1);
-		tempGame.setBlueChips(1);
-		tempGame.setGreenChips(1);
-		tempGame.setBlackChips(1);
-		tempGame.setWhiteChips(1);
-		assertFalse(tempGame.pickUpChips(2, 0, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 2, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 2, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 2, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 0, 2));
-
-		tempGame.setRedChips(3);
-		tempGame.setBlueChips(3);
-		tempGame.setGreenChips(3);
-		tempGame.setBlackChips(3);
-		tempGame.setWhiteChips(3);
-		assertFalse(tempGame.pickUpChips(2, 0, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 2, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 2, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 2, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 0, 2));
-
-		assertFalse(tempGame.pickUpChips(3, 0, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 3, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 3, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 3, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 0, 3));
-
-		assertFalse(tempGame.pickUpChips(-1, 0, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, -1, 0, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, -1, 0, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, -1, 0));
-		assertFalse(tempGame.pickUpChips(0, 0, 0, 0, -1));
-		
-		tempGame.getPlayers()[1].changeWhite(5);
-		tempGame.getPlayers()[1].changeBlack(5);
-		tempGame.getPlayers()[1].setChipTotal();
-		tempGame.setCurrentPlayer(tempGame.getPlayers()[1]);
-		assertTrue(tempGame.pickUpChips(1, 0, 0, 0, 0));
-		
-		tempGame = new SplendorGame(2);
-		assertTrue(tempGame.pickUpChips(2, 0, 0, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 2, 0, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 2, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 0, 2, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 0, 0, 2));
-		assertTrue(tempGame.pickUpChips(1, 1, 1, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 1, 1, 1, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 1, 1, 1));
-		assertTrue(tempGame.pickUpChips(1, 0, 0, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 1, 0, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 1, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 0, 1, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 0, 0, 1));
-		assertTrue(tempGame.pickUpChips(1, 1, 0, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 1, 1, 0, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 1, 1, 0));
-		assertTrue(tempGame.pickUpChips(0, 0, 0, 1, 1));
-		assertTrue(tempGame.pickUpChips(1, 0, 0, 0, 1));
-	}
 	
 	/** tests all the set methods. */
 	@Test
@@ -337,12 +265,5 @@ public class SplendorTest {
         assertEquals(player2.getHoldCard(), null);
         assertEquals(player2.getPoints(), 11);
         assertEquals(player2.getChipTotal(), 21);
-    }
-    
-    /** tests the panel. */
-    @Test
-    public void testPanel() {
-    	SplendorPanel tempPanel = new SplendorPanel();
-    	tempPanel.runTests();
     }
 }
