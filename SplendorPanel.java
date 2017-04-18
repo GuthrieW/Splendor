@@ -265,21 +265,6 @@ public class SplendorPanel extends JPanel {
 
 	private JTextField whiteField;
 
-	//	/** number of red chips. */
-	//	private JTextField redText;
-	//
-	//	/** number of blue chips. */
-	//	private JTextField blueText;
-	//
-	//	/** number of green chips. */
-	//	private JTextField greenText;
-	//
-	//	/** number of black chips. */
-	//	private JTextField blackText;
-	//
-	//	/** number of white chips. */
-	//	private JTextField whiteText;
-
 	/**********************************************************************
 	 * This class handles the logic for the GUI class for the game
 	 * of Splendor.
@@ -418,7 +403,7 @@ public class SplendorPanel extends JPanel {
 		bottomPanel.setLayout(new GridLayout(1, 2));
 		bottomPanel.add(actionPanel);
 		bottomPanel.add(players);
-
+		
 		addKeyListener(listener);
 		setFocusable(true);
 		add(topPanel);
