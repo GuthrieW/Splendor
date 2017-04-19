@@ -2,6 +2,7 @@ package Splendor;
 
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Dimension;
 //import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -25,7 +26,9 @@ import javax.swing.JMenuItem;
 //import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
@@ -292,6 +295,8 @@ public class SplendorPanel extends JPanel {
 				"NUMBER OF PLAYERS", JOptionPane.
 				QUESTION_MESSAGE, null, possiblePlayerAmount,
 				possiblePlayerAmount[0]);
+		if (sNumberOfPlayers == null) 
+			System.exit(0);
 		int iNumberOfPlayers = Integer.parseInt(sNumberOfPlayers);
 		// create a new SplendorGame object
 		game = new SplendorGame(iNumberOfPlayers);
@@ -1963,14 +1968,17 @@ public class SplendorPanel extends JPanel {
 				try {
 					JFrame frame = new JFrame("Help");
 					JPanel panel = new JPanel();
-					JTextArea area = new JTextArea();
-					area.setEditable(false);
-					panel.add(area);
+					JTextPane area = new JTextPane();
+					area.setPreferredSize(new Dimension(500, 600));
+					JScrollPane scroll = new JScrollPane(area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+					//scroll.setEditable(false);
+					panel.add(scroll);
 					frame.add(panel);
 					Scanner scan = new Scanner(new File("help.txt"));
 					String content = "";
 					while (scan.hasNextLine()) {
 						content += scan.nextLine();
+						content += "\n";
 					}
 					area.setText(content);
 					scan.close();
@@ -2032,7 +2040,7 @@ public class SplendorPanel extends JPanel {
 				try {
 					JFrame frame = new JFrame("Help");
 					JPanel panel = new JPanel();
-					JTextArea area = new JTextArea();
+					JTextPane area = new JTextPane();
 					area.setEditable(false);
 					panel.add(area);
 					frame.add(panel);
@@ -2040,6 +2048,7 @@ public class SplendorPanel extends JPanel {
 					String content = "";
 					while (scan.hasNextLine()) {
 						content += scan.nextLine();
+						content += "\n";
 					}
 					area.setText(content);
 					scan.close();
