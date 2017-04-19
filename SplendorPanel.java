@@ -288,6 +288,8 @@ public class SplendorPanel extends JPanel {
 	private JMenuItem song;
 
 	private boolean playingMusic; 
+	
+	private Clip clip;
 
 	/**********************************************************************
 	 * This class handles the logic for the GUI class for the game
@@ -1763,20 +1765,20 @@ public class SplendorPanel extends JPanel {
 		return turn;
 	}
 
+	/**
+	 * Plays a song as background music for the game.
+	 * @param choice which music to play.
+	 */
 	private void playMusic(int choice) {
 		if (choice == 1) {
 			try {
 				AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("buy.wav").getAbsoluteFile());
-				Clip clip = AudioSystem.getClip();
-				clip.open(audioStream);
-				clip.start();
+				Clip mus = AudioSystem.getClip();
+				mus.open(audioStream);
+				mus.start();
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
 			}
-		} else if (choice == 2) {
-			
-		} else {
-			
 		}
 	}
 	
@@ -2036,7 +2038,7 @@ public class SplendorPanel extends JPanel {
 				if (!playingMusic) {
 					try {
 						AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("music.wav").getAbsoluteFile());
-						Clip clip = AudioSystem.getClip();
+						clip = AudioSystem.getClip();
 						clip.open(audioStream);
 						clip.start();
 					} catch (Exception ex) {
@@ -2044,6 +2046,8 @@ public class SplendorPanel extends JPanel {
 					}
 					playingMusic = true;
 				} else {
+					clip.stop();
+					clip.close();
 					playingMusic = false;
 				}
 			}
