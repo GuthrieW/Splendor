@@ -13,11 +13,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Scanner;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -279,13 +285,17 @@ public class SplendorPanel extends JPanel {
 	/**  .*/
 	private JMenuItem help;
 
+	private JMenuItem song;
+
+	private boolean playingMusic; 
+
 	/**********************************************************************
 	 * This class handles the logic for the GUI class for the game
 	 * of Splendor.
 	 *
 	 * @author David Brown, Wesley Guthrie
 	 **********************************************************************/
-	public SplendorPanel(JMenuItem mQuit, JMenuItem mHelp) {
+	public SplendorPanel(JMenuItem mQuit, JMenuItem mHelp, JMenuItem agario) {
 		// an array with different numbers of possible players
 		String[] possiblePlayerAmount = {"2", "3", "4"};
 
@@ -422,7 +432,9 @@ public class SplendorPanel extends JPanel {
 
 		quit = mQuit;
 		help = mHelp;
+		song = agario;
 
+		song.addActionListener(listener);
 		quit.addActionListener(listener);
 		help.addActionListener(listener);
 		addKeyListener(listener);
@@ -809,6 +821,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getHighCard1())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -872,6 +885,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getHighCard2())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -936,6 +950,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getHighCard3())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1000,6 +1015,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getHighCard4())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1064,6 +1080,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getMiddleCard1())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1127,6 +1144,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getMiddleCard2())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1190,6 +1208,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getMiddleCard3())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1253,6 +1272,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getMiddleCard4())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1319,6 +1339,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getLowCard1())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1386,6 +1407,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getLowCard2())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1453,6 +1475,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getLowCard3())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1520,6 +1543,7 @@ public class SplendorPanel extends JPanel {
 		if (answer == "BUY CARD") {
 			// if the player can buy the card
 			if (game.buyResourceCard(game.getLowCard4())) {
+				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
@@ -1739,6 +1763,23 @@ public class SplendorPanel extends JPanel {
 		return turn;
 	}
 
+	private void playMusic(int choice) {
+		if (choice == 1) {
+			try {
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("buy.wav").getAbsoluteFile());
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				clip.start();
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
+			}
+		} else if (choice == 2) {
+			
+		} else {
+			
+		}
+	}
+	
 	/**
 	 * Disables all JButtons.
 	 */
@@ -1988,6 +2029,22 @@ public class SplendorPanel extends JPanel {
 					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null, "Could not find help file", "ERROR: File not found", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
+				}
+			}
+
+			if (e.getSource() == song) {
+				if (!playingMusic) {
+					try {
+						AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("music.wav").getAbsoluteFile());
+						Clip clip = AudioSystem.getClip();
+						clip.open(audioStream);
+						clip.start();
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
+					}
+					playingMusic = true;
+				} else {
+					playingMusic = false;
 				}
 			}
 

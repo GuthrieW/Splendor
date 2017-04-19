@@ -28,19 +28,22 @@ public final class SplendorGUI {
 		JMenuBar menus;
 		JMenu menu;
 		JMenuItem quitItem;
-		JMenuItem openRules;  
+		JMenuItem openRules;
+		JMenuItem song;
 
 		// set up File menu
 		menu = new JMenu("Menu");
 		quitItem = new JMenuItem("Quit");
 		openRules = new JMenuItem("Rules");
+		song = new JMenuItem("Play Music");
 		menu.add(openRules);
 		menu.add(quitItem);
+		menu.add(song);
 		menus = new JMenuBar();
 		frame.setJMenuBar(menus);
 		menus.add(menu);
 
-		SplendorPanel panel = new SplendorPanel(quitItem, openRules);
+		SplendorPanel panel = new SplendorPanel(quitItem, openRules, song);
 		frame.getContentPane().add(panel);
 		frame.setResizable(true);
 		frame.pack();
