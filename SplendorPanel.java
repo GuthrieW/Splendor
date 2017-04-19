@@ -255,15 +255,26 @@ public class SplendorPanel extends JPanel {
 	/** player 4s white chips. */
 	private JTextField player4White;
 
+	/**  .*/
 	private JTextField redField;
 
+	/**  .*/
 	private JTextField blueField;
 
+	/**  .*/
 	private JTextField greenField;
 
+	/**  .*/
 	private JTextField blackField;
 
+	/**  .*/
 	private JTextField whiteField;
+
+	/**  .*/
+	private JMenuItem quit;
+
+	/**  .*/
+	private JMenuItem help;
 
 	/**********************************************************************
 	 * This class handles the logic for the GUI class for the game
@@ -271,7 +282,7 @@ public class SplendorPanel extends JPanel {
 	 *
 	 * @author David Brown, Wesley Guthrie
 	 **********************************************************************/
-	public SplendorPanel() {
+	public SplendorPanel(JMenuItem mQuit, JMenuItem mHelp) {
 		// an array with different numbers of possible players
 		String[] possiblePlayerAmount = {"2", "3", "4"};
 
@@ -403,7 +414,12 @@ public class SplendorPanel extends JPanel {
 		bottomPanel.setLayout(new GridLayout(1, 2));
 		bottomPanel.add(actionPanel);
 		bottomPanel.add(players);
-		
+
+		quit = mQuit;
+		help = mHelp;
+
+		quit.addActionListener(listener);
+		help.addActionListener(listener);
 		addKeyListener(listener);
 		setFocusable(true);
 		add(topPanel);
@@ -1938,6 +1954,35 @@ public class SplendorPanel extends JPanel {
 			if (e.getSource() == player4Held) {
 				turnTaken = hold4();
 			}
+
+			if (e.getSource() == quit) {
+				System.exit(0);
+			}
+
+			if (e.getSource() == help) {
+				try {
+					JFrame frame = new JFrame("Help");
+					JPanel panel = new JPanel();
+					JTextArea area = new JTextArea();
+					area.setEditable(false);
+					panel.add(area);
+					frame.add(panel);
+					Scanner scan = new Scanner(new File("help.txt"));
+					String content = "";
+					while (scan.hasNextLine()) {
+						content += scan.nextLine();
+					}
+					area.setText(content);
+					scan.close();
+					frame.pack();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "Could not find help file", "ERROR: File not found", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
+
 			// check to see if the current player can buy a noble
 			if (game.buyNoble()) {
 				Noble first = game.getNoble1();
@@ -1988,7 +2033,7 @@ public class SplendorPanel extends JPanel {
 					JFrame frame = new JFrame("Help");
 					JPanel panel = new JPanel();
 					JTextArea area = new JTextArea();
-					//					area.setEditable(false);
+					area.setEditable(false);
 					panel.add(area);
 					frame.add(panel);
 					Scanner scan = new Scanner(new File("help.txt"));
