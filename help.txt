@@ -1,36 +1,52 @@
-   _______  _______   ___       _______  _____  ___   ________      ______     _______   
- /"       )|   __ "\ |"  |     /"     "|(\"   \|"  \ |"      "\    /    " \   /"      \  
-(:   \___/ (. |__) :)||  |    (: ______)|.\\   \    |(.  ___  :)  // ____  \ |:        | 
- \___  \   |:  ____/ |:  |     \/    |  |: \.   \\  ||: \   ) || /  /    ) :)|_____/   ) 
-  __/  \\  (|  /      \  |___  // ___)_ |.  \    \. |(| (___\ ||(: (____/ //  //      /  
- /" \   :)/|__/ \    ( \_|:  \(:      "||    \    \ ||:       :) \        /  |:  __   \  
-(_______/(_______)    \_______)\_______) \___|\____\)(________/   \"_____/   |__|  \___) 
-                                                                                         
+ __..__ .    .___.  ..__ .__..__ 
+(__ [__)|    [__ |\ ||   \ |  |[__)
+.__)|    |___[___| \||__/|__||  \
 
 How to play
 
 Here is the set up
 
-    Take all 5 Gold chips and 4 / 5 / 7 of each of the Gem Chips for 2 / 3 / 4 player game
-    Shuffle each of the 3 Mine decks and turn 4 of each face up. As they are purchased or reserved, replenish the face up cards.
+    Take all 5 Gold chips and 4 / 5 / 7 of each of the Gem 
+		Chips for 2 / 3 / 4 player game
+    Shuffle each of the 3 Mine decks and turn 4 of each face up. 
+		As they are purchased or reserved, replenish the face up cards.
     Shuffle the Nobles and turn up the number of players + 1 nobles.
     Determine who goes first
 
 Each player takes one of the following options on each of their turns
 
-    Collect Gem Chips – Either:Take 1 Gem from each of 3 different stacks (not gold)
-        Take 2 Gems from one stack, as long as there are 4 or more chips in that stack
-    Reserve a Mine for playing later. You can take either a face up mine or the top card of any deck. When you take this option, you also collect a Gold Chip if available.  You may not reserve a Mine if you already have 3 Mines reserved.Nobles
+    Collect Gem Chips – Either:Take 1 Gem from each of 3 different 
+		stacks (not gold)
+    Take 2 Gems from one stack, as long as there are 4 or more chips 
+		in that stack
+    Reserve a Mine for playing later. You can take either a face up 
+		mine or the top card of any deck. When you take this option, 
+		you also collect a Gold Chip if available.  You may not 
+		reserve a Mine if you already have 3 Mines reserved.Nobles
     Build a mine from the face up Mines or a reserved Mine.
-    At the end of a player’s turn, if that player has the number of mines required for a visit from a Noble, that player takes one of those nobles.
+    At the end of a player’s turn, if that player has the number of 
+		mines required for a visit from a Noble, that player takes 
+		one of those nobles.
 
 How to Win
 
-Splendor may be a simple game rules wise, however there is a lot of depth to the interplay available. The game will start slowly, as players take chips and reserve mines. As the mines start getting built, the game can start progressing at a rapid fire pace.
+Splendor may be a simple game rules wise, however there is a lot 
+	of depth to the interplay available. The game will start 
+	slowly, as players take chips and reserve mines. As the mines 
+	start getting built, the game can start progressing at a rapid 
+	fire pace.
 
 1x4 Mine
 
-Evaluating the board and determining when to take chips and when to reserve a mine is one of the difficulties new players have with the game. Reserving a mine can feel like you are wasting a turn. But on mines like the one to the left it can be the right call. Taking the mine and the gold (which is a wild) can guarantee you can build a mine on your 3rd turn. If you were to take gems on each of your first two turns, you could still build this mine on your 3rd turn, however you are leaving it up to your opponents to not buy or reserve this mine in front of you.
+Evaluating the board and determining when to take chips and when to 
+	reserve a mine is one of the difficulties new players have with 
+	the game. Reserving a mine can feel like you are wasting a turn. 
+	But on mines like the one to the left it can be the right call. 
+	Taking the mine and the gold (which is a wild) can guarantee you 
+	can build a mine on your 3rd turn. If you were to take gems on 
+	each of your first two turns, you could still build this mine on 
+	your 3rd turn, however you are leaving it up to your opponents to 
+	not buy or reserve this mine in front of you.
 
  
 
@@ -42,15 +58,38 @@ Tier 1 mines have an average gem cost of 3-5.
 Tier 2 mines have an average gem cost of 5-7.
 Tier 3 mines have an average gem cost of 7-14.
 
-The increase in cost tends to keep newer players from going after these mines until they have no option left. While mines of all 3 ranks only give a reduction of a single gem, the Rank 2 and 3 mines have a sizable amount of victory points. Picking up a couple rank 2 mines can get a player close to ending the game early.
+The increase in cost tends to keep newer players from going after 
+	these mines until they have no option left. While mines of all 
+	3 ranks only give a reduction of a single gem, the Rank 2 and 3 
+	mines have a sizable amount of victory points. Picking up a 
+	couple rank 2 mines can get a player close to ending the game 
+	early.
 
 “The Machine”
 
-A machine is built one piece at a time. The same is true of the strategy known as “The Machine.” The goal here is to get as many mines as you can, preferably working toward picking up the Nobles as quickly as possible. To get The Machine underway, you would want to start buying mines quickly. Every turn you can build a mine, do it. Each one will reduce the cost of your future mines and making it easy to get more. You won’t be building deep in this strategy, but instead building wide, looking for 2-3 of each type of mine as early as possible and then start working towards the Rank 2 and 3 mines while picking up free mines from Rank 1 when available.
+A machine is built one piece at a time. The same is true of the 
+	strategy known as “The Machine.” The goal here is to get as 
+	many mines as you can, preferably working toward picking up 
+	the Nobles as quickly as possible. To get The Machine underway, 
+	you would want to start buying mines quickly. Every turn you 
+	can build a mine, do it. Each one will reduce the cost of your 
+	future mines and making it easy to get more. You won’t be building
+	deep in this strategy, but instead building wide, looking for 
+	2-3 of each type of mine as early as possible and then start 
+	working towards the Rank 2 and 3 mines while picking up free 
+	mines from Rank 1 when available.
 
 “The Drought”
 
-While not, in itself, a way to win the game, playing to dry up one type of mine is a good way to delay the game and get to the late stages. What you are looking to do here is to build or reserve every mine of a particular gem type that you can in the Rank 1 mines. If you can get them all, or keep their availability low to the other players, you can capitalize big time. To do this most effectively, you should pick a gem type that is decently represented among the nobles and the Rank 2 and 3 mines. You will be advancing your late game and delaying everyone else significantly.
+While not, in itself, a way to win the game, playing to dry up one 
+	type of mine is a good way to delay the game and get to the 
+	late stages. What you are looking to do here is to build or 
+	reserve every mine of a particular gem type that you can in the 
+	Rank 1 mines. If you can get them all, or keep their availability 
+	low to the other players, you can capitalize big time. To do this
+	 most effectively, you should pick a gem type that is decently 
+	represented among the nobles and the Rank 2 and 3 mines. You will
+	 be advancing your late game and delaying everyone else significantly.
 
 
 
