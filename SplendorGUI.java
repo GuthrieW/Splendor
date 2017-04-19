@@ -24,7 +24,6 @@ public final class SplendorGUI {
 		JFrame frame = new JFrame("Splendor");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-
 		/** Menu items */
 	    JMenuBar menus;
 	    JMenu menu;
@@ -35,6 +34,7 @@ public final class SplendorGUI {
 		frame.getContentPane().add(panel);
 		frame.setResizable(true);
 		frame.pack();
+		frame.setSize(1200,1500);
 		frame.setVisible(true);
 		
 		// set up File menu
