@@ -2041,10 +2041,11 @@ public class SplendorPanel extends JPanel {
 						clip = AudioSystem.getClip();
 						clip.open(audioStream);
 						clip.start();
+						playingMusic = true;
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
+						playingMusic = false;
 					}
-					playingMusic = true;
 				} else {
 					clip.stop();
 					clip.close();
