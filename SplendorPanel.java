@@ -1,6 +1,8 @@
 package Splendor;
 
+
 import java.awt.Color;
+
 import java.awt.Desktop;
 import java.awt.Dimension;
 //import java.awt.Dimension;
@@ -12,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,6 +23,9 @@ import java.util.Scanner;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -1764,7 +1770,7 @@ public class SplendorPanel extends JPanel {
 		}
 		return turn;
 	}
-
+	
 	/**
 	 * Plays a song as background music for the game.
 	 * @param choice which music to play.
@@ -1772,12 +1778,23 @@ public class SplendorPanel extends JPanel {
 	private void playMusic(int choice) {
 		if (choice == 1) {
 			try {
-				AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("buy.wav").getAbsoluteFile());
-				Clip mus = AudioSystem.getClip();
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("buy.wav"));
+				DataLine.Info info = new DataLine.Info(Clip.class, audioStream.getFormat());
+				Clip mus = (Clip) AudioSystem.getLine(info);
 				mus.open(audioStream);
 				mus.start();
-			} catch (Exception ex) {
+			} catch (IOException ex) {
+				System.out.println("1riuvnreuvnuergivimn");
+
 				JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
+				System.out.println("1");
+
+			} catch (LineUnavailableException exc) {
+				System.out.println("2");
+
+			
+			} catch (UnsupportedAudioFileException exce) {
+				System.out.println("3");
 			}
 		}
 	}
@@ -2035,16 +2052,24 @@ public class SplendorPanel extends JPanel {
 			}
 
 			if (e.getSource() == song) {
+				
 				if (!playingMusic) {
 					try {
-						AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("music.wav").getAbsoluteFile());
-						clip = AudioSystem.getClip();
+						AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("music.wav"));
+						DataLine.Info info = new DataLine.Info(Clip.class, audioStream.getFormat());
+						clip = (Clip)AudioSystem.getLine(info);
 						clip.open(audioStream);
 						clip.start();
 						playingMusic = true;
-					} catch (Exception ex) {
+					} catch (IOException ex) {
 						JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
-						playingMusic = false;
+						System.out.println("1");
+
+					} catch (LineUnavailableException exc) {
+						System.out.println("2");
+
+					} catch (UnsupportedAudioFileException exce) {
+						System.out.println("3");
 					}
 				} else {
 					clip.stop();
