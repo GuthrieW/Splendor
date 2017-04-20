@@ -1,4 +1,4 @@
-package Splendor;
+package splendor;
 
 /**********************************************************************
  * This class maintains the GUI.

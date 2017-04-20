@@ -1,11 +1,9 @@
-package Splendor;
+package splendor;
 
 
 import java.awt.Color;
 
-import java.awt.Desktop;
 import java.awt.Dimension;
-//import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -14,10 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Scanner;
 
 import javax.sound.sampled.AudioInputStream;
@@ -29,11 +24,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 //import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -42,7 +34,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
 
 /**********************************************************************
  * This class handles the logic for the GUI class for the game
@@ -270,31 +261,34 @@ public class SplendorPanel extends JPanel {
 	/** player 4s white chips. */
 	private JTextField player4White;
 
-	/**  .*/
+	/**  number of red chips chosen to pick up.*/
 	private JTextField redField;
 
-	/**  .*/
+	/**  number of blue chips chosen to pick up.*/
 	private JTextField blueField;
 
-	/**  .*/
+	/**  number of green chips chosen to pick up.*/
 	private JTextField greenField;
 
-	/**  .*/
+	/**  number of black chips chosen to pick up.*/
 	private JTextField blackField;
 
-	/**  .*/
+	/**  number of white chips chosen to pick up.*/
 	private JTextField whiteField;
 
-	/**  .*/
+	/**  quit menu item.*/
 	private JMenuItem quit;
 
-	/**  .*/
+	/**  help menu item. */
 	private JMenuItem help;
 
+	/** song menu item. */
 	private JMenuItem song;
-
+	
+	/** boolean for whether or not music is playing. */
 	private boolean playingMusic; 
 	
+	/** clip for music. */
 	private Clip clip;
 
 	/**********************************************************************
@@ -302,8 +296,12 @@ public class SplendorPanel extends JPanel {
 	 * of Splendor.
 	 *
 	 * @author David Brown, Wesley Guthrie
+	 * @param mQuit .
+	 * @param mHelp .
+	 * @param mSong .
 	 **********************************************************************/
-	public SplendorPanel(JMenuItem mQuit, JMenuItem mHelp, JMenuItem agario) {
+	public SplendorPanel(final JMenuItem mQuit, final JMenuItem mHelp,
+			final JMenuItem mSong) {
 		// an array with different numbers of possible players
 		String[] possiblePlayerAmount = {"2", "3", "4"};
 
@@ -313,8 +311,9 @@ public class SplendorPanel extends JPanel {
 				"NUMBER OF PLAYERS", JOptionPane.
 				QUESTION_MESSAGE, null, possiblePlayerAmount,
 				possiblePlayerAmount[0]);
-		if (sNumberOfPlayers == null) 
+		if (sNumberOfPlayers == null) {
 			System.exit(0);
+		}
 		int iNumberOfPlayers = Integer.parseInt(sNumberOfPlayers);
 		// create a new SplendorGame object
 		game = new SplendorGame(iNumberOfPlayers);
@@ -440,11 +439,11 @@ public class SplendorPanel extends JPanel {
 
 		quit = mQuit;
 		help = mHelp;
-		song = agario;
+		song = mSong;
 
-		song.addActionListener(listener);
 		quit.addActionListener(listener);
 		help.addActionListener(listener);
+		song.addActionListener(listener);
 		addKeyListener(listener);
 		setFocusable(true);
 		add(topPanel);
@@ -463,7 +462,7 @@ public class SplendorPanel extends JPanel {
 		noble1 = new JButton();
 		inoble1 = new ImageIcon(game.getNoble1().getImageFile());
 		Image temp1 = inoble1.getImage().getScaledInstance(
-				ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		inoble1 = new ImageIcon(temp1);
 		noble1.setIcon(inoble1);
 		cardPanel.add(noble1);
@@ -472,7 +471,7 @@ public class SplendorPanel extends JPanel {
 		highCard1 = new JButton();
 		iHighCard1 = new ImageIcon(game.getHighCard1().getImageFile());
 		temp1 = iHighCard1.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iHighCard1 = new ImageIcon(temp1);
 		highCard1.setIcon(iHighCard1);
 		highCard1.addActionListener(listener);
@@ -481,7 +480,7 @@ public class SplendorPanel extends JPanel {
 		highCard2 = new JButton();
 		iHighCard2 = new ImageIcon(game.getHighCard2().getImageFile());
 		temp1 = iHighCard2.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iHighCard2 = new ImageIcon(temp1);
 		highCard2.setIcon(iHighCard2);
 		highCard2.addActionListener(listener);
@@ -490,7 +489,7 @@ public class SplendorPanel extends JPanel {
 		highCard3 = new JButton();
 		iHighCard3 = new ImageIcon(game.getHighCard3().getImageFile());
 		temp1 = iHighCard3.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iHighCard3 = new ImageIcon(temp1);
 		highCard3.setIcon(iHighCard3);
 		highCard3.addActionListener(listener);
@@ -499,7 +498,7 @@ public class SplendorPanel extends JPanel {
 		highCard4 = new JButton();
 		iHighCard4 = new ImageIcon(game.getHighCard4().getImageFile());
 		temp1 = iHighCard4.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iHighCard4 = new ImageIcon(temp1);
 		highCard4.setIcon(iHighCard4);
 		highCard4.addActionListener(listener);
@@ -509,7 +508,7 @@ public class SplendorPanel extends JPanel {
 		noble2 = new JButton();
 		inoble2 = new ImageIcon(game.getNoble2().getImageFile());
 		temp1 = inoble2.getImage().getScaledInstance(
-				ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		inoble2 = new ImageIcon(temp1);
 		noble2.setIcon(inoble2);
 		cardPanel.add(noble2);
@@ -518,7 +517,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard1 = new ImageIcon(
 				game.getMiddleCard1().getImageFile());
 		temp1 = iMiddleCard1.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iMiddleCard1 = new ImageIcon(temp1);
 		middleCard1.setIcon(iMiddleCard1);
 		middleCard1.addActionListener(listener);
@@ -529,7 +528,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard2 = new ImageIcon(
 				game.getMiddleCard2().getImageFile());
 		temp1 = iMiddleCard2.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iMiddleCard2 = new ImageIcon(temp1);
 		middleCard2.setIcon(iMiddleCard2);
 		middleCard2.addActionListener(listener);
@@ -540,7 +539,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard3 = new ImageIcon(
 				game.getMiddleCard3().getImageFile());
 		temp1 = iMiddleCard3.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iMiddleCard3 = new ImageIcon(temp1);
 		middleCard3.setIcon(iMiddleCard3);
 		middleCard3.addActionListener(listener);
@@ -551,7 +550,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard4 = new ImageIcon(
 				game.getMiddleCard4().getImageFile());
 		temp1 = iMiddleCard4.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iMiddleCard4 = new ImageIcon(temp1);
 		middleCard4.setIcon(iMiddleCard4);
 		middleCard4.addActionListener(listener);
@@ -561,7 +560,7 @@ public class SplendorPanel extends JPanel {
 		noble3 = new JButton();
 		inoble3 = new ImageIcon(game.getNoble3().getImageFile());
 		temp1 = inoble3.getImage().getScaledInstance(
-				ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		inoble3 = new ImageIcon(temp1);
 		noble3.setIcon(inoble3);
 		cardPanel.add(noble3);
@@ -569,7 +568,7 @@ public class SplendorPanel extends JPanel {
 		lowCard1 = new JButton();
 		ilowCard1 = new ImageIcon(game.getLowCard1().getImageFile());
 		temp1 = ilowCard1.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		ilowCard1 = new ImageIcon(temp1);
 		lowCard1.setIcon(ilowCard1);
 		lowCard1.addActionListener(listener);
@@ -578,7 +577,7 @@ public class SplendorPanel extends JPanel {
 		lowCard2 = new JButton();
 		iLowCard2 = new ImageIcon(game.getLowCard2().getImageFile());
 		temp1 = iLowCard2.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iLowCard2 = new ImageIcon(temp1);
 		lowCard2.setIcon(iLowCard2);
 		lowCard2.addActionListener(listener);
@@ -587,7 +586,7 @@ public class SplendorPanel extends JPanel {
 		lowCard3 = new JButton();
 		iLowCard3 = new ImageIcon(game.getLowCard3().getImageFile());
 		temp1 = iLowCard3.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iLowCard3 = new ImageIcon(temp1);
 		lowCard3.setIcon(iLowCard3);
 		lowCard3.addActionListener(listener);
@@ -596,7 +595,7 @@ public class SplendorPanel extends JPanel {
 		lowCard4 = new JButton();
 		iLowCard4 = new ImageIcon(game.getLowCard4().getImageFile());
 		temp1 = iLowCard4.getImage().getScaledInstance(
-				ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+			ONEFIFTEEN, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		iLowCard4 = new ImageIcon(temp1);
 		lowCard4.setIcon(iLowCard4);
 		lowCard4.addActionListener(listener);
@@ -840,8 +839,8 @@ public class SplendorPanel extends JPanel {
 						.getImageFile());
 				Image temp1 = iHighCard1.getImage()
 						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt
-								.Image.SCALE_SMOOTH);
+							ONEFORTY, java.awt
+							.Image.SCALE_SMOOTH);
 				iHighCard1 = new ImageIcon(temp1);
 				highCard1.setIcon(iHighCard1);
 				turn = true;
@@ -855,22 +854,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getHighCard1())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setHighCard1(game.takeCard(
 						SplendorGame.HIGH_DECK));
 				iHighCard1 = new ImageIcon(game
 						.getHighCard1().getImageFile());
 				Image temp1 = iHighCard1.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iHighCard1 = new ImageIcon(temp1);
 				highCard1.setIcon(iHighCard1);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -903,8 +903,8 @@ public class SplendorPanel extends JPanel {
 				iHighCard2 = new ImageIcon(game.getHighCard2()
 						.getImageFile());
 				Image temp1 = iHighCard2.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 				iHighCard2 = new ImageIcon(temp1);
 				highCard2.setIcon(iHighCard2);
 				turn = true;
@@ -920,22 +920,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getHighCard2())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setHighCard2(game.takeCard(
 						SplendorGame.HIGH_DECK));
 				iHighCard2 = new ImageIcon(game
 						.getHighCard2().getImageFile());
 				Image temp1 = iHighCard2.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iHighCard2 = new ImageIcon(temp1);
 				highCard2.setIcon(iHighCard2);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -968,8 +969,8 @@ public class SplendorPanel extends JPanel {
 				iHighCard3 = new ImageIcon(game
 						.getHighCard3().getImageFile());
 				Image temp1 = iHighCard3.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iHighCard3 = new ImageIcon(temp1);
 				highCard3.setIcon(iHighCard3);
 				turn = true;
@@ -985,22 +986,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getHighCard3())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setHighCard3(game.takeCard(
 						SplendorGame.HIGH_DECK));
 				iHighCard3 = new ImageIcon(game
 						.getHighCard3().getImageFile());
 				Image temp1 = iHighCard3.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iHighCard3 = new ImageIcon(temp1);
 				highCard3.setIcon(iHighCard3);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1034,8 +1036,8 @@ public class SplendorPanel extends JPanel {
 						.getHighCard4().getImageFile());
 				Image temp1 = iHighCard4.getImage()
 						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+						ONEFORTY,
+						java.awt.Image.SCALE_SMOOTH);
 				iHighCard4 = new ImageIcon(temp1);
 				highCard4.setIcon(iHighCard4);
 				turn = true;
@@ -1051,22 +1053,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getHighCard4())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setHighCard4(game.takeCard(
 						SplendorGame.HIGH_DECK));
 				iHighCard4 = new ImageIcon(game
 						.getHighCard4().getImageFile());
 				Image temp1 = iHighCard4.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iHighCard4 = new ImageIcon(temp1);
 				highCard4.setIcon(iHighCard4);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1096,10 +1099,10 @@ public class SplendorPanel extends JPanel {
 						SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard1 = new ImageIcon(
-						game.getMiddleCard1().getImageFile());
+					game.getMiddleCard1().getImageFile());
 				Image temp1 = iMiddleCard1.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard1 = new ImageIcon(temp1);
 				middleCard1.setIcon(iMiddleCard1);
 				turn = true;
@@ -1115,22 +1118,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getMiddleCard1())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setMiddleCard1(game.takeCard(
 						SplendorGame.MIDDLE_DECK));
 				iMiddleCard1 = new ImageIcon(
-						game.getMiddleCard1().getImageFile());
+					game.getMiddleCard1().getImageFile());
 				Image temp1 = iMiddleCard1.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard1 = new ImageIcon(temp1);
 				middleCard1.setIcon(iMiddleCard1);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1160,10 +1164,10 @@ public class SplendorPanel extends JPanel {
 						SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard2 = new ImageIcon(
-						game.getMiddleCard2().getImageFile());
+					game.getMiddleCard2().getImageFile());
 				Image temp1 = iMiddleCard2.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard2 = new ImageIcon(temp1);
 				middleCard2.setIcon(iMiddleCard2);
 				turn = true;
@@ -1179,22 +1183,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getMiddleCard2())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setMiddleCard2(game.takeCard(
 						SplendorGame.MIDDLE_DECK));
 				iMiddleCard2 = new ImageIcon(
-						game.getMiddleCard2().getImageFile());
+					game.getMiddleCard2().getImageFile());
 				Image temp1 = iMiddleCard2.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard2 = new ImageIcon(temp1);
 				middleCard2.setIcon(iMiddleCard2);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1224,10 +1229,10 @@ public class SplendorPanel extends JPanel {
 						SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard3 = new ImageIcon(
-						game.getMiddleCard3().getImageFile());
+					game.getMiddleCard3().getImageFile());
 				Image temp1 = iMiddleCard3.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard3 = new ImageIcon(temp1);
 				middleCard3.setIcon(iMiddleCard3);
 				turn = true;
@@ -1243,22 +1248,23 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getMiddleCard3())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setMiddleCard3(game.takeCard(
 						SplendorGame.MIDDLE_DECK));
 				iMiddleCard3 = new ImageIcon(
-						game.getMiddleCard3().getImageFile());
+					game.getMiddleCard3().getImageFile());
 				Image temp1 = iMiddleCard3.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard3 = new ImageIcon(temp1);
 				middleCard3.setIcon(iMiddleCard3);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1288,18 +1294,19 @@ public class SplendorPanel extends JPanel {
 						SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard4 = new ImageIcon(
-						game.getMiddleCard4().getImageFile());
+					game.getMiddleCard4().getImageFile());
 				Image temp1 = iMiddleCard4.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard4 = new ImageIcon(temp1);
 				middleCard4.setIcon(iMiddleCard4);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 			return turn;
 		}
@@ -1309,23 +1316,24 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getMiddleCard4())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setMiddleCard4(game.takeCard(
 						SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard4 = new ImageIcon(
-						game.getMiddleCard4().getImageFile());
+					game.getMiddleCard4().getImageFile());
 				Image temp1 = iMiddleCard4.getImage()
-						.getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.SCALE_SMOOTH);
+					.getScaledInstance(ONEHUNDRED,
+					ONEFORTY, java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard4 = new ImageIcon(temp1);
 				middleCard4.setIcon(iMiddleCard4);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1359,7 +1367,7 @@ public class SplendorPanel extends JPanel {
 						getImageFile());
 				Image temp1 = ilowCard1.getImage().
 						getScaledInstance(ONEHUNDRED,
-								ONEFORTY, java.awt.Image.
+						ONEFORTY, java.awt.Image.
 								SCALE_SMOOTH);
 				ilowCard1 = new ImageIcon(temp1);
 				lowCard1.setIcon(ilowCard1);
@@ -1376,7 +1384,7 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getLowCard1())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setLowCard1(game.takeCard(
 						SplendorGame.LOW_DECK));
 				ilowCard1 = new ImageIcon(game.
@@ -1392,8 +1400,9 @@ public class SplendorPanel extends JPanel {
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1427,7 +1436,7 @@ public class SplendorPanel extends JPanel {
 				Image temp1 = iLowCard2.getImage().
 						getScaledInstance(ONEHUNDRED,
 								ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+						java.awt.Image.SCALE_SMOOTH);
 				iLowCard2 = new ImageIcon(temp1);
 				lowCard2.setIcon(iLowCard2);
 				turn = true;
@@ -1443,7 +1452,7 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getLowCard2())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setLowCard2(game.takeCard(
 						SplendorGame.LOW_DECK));
 				iLowCard2 = new ImageIcon(
@@ -1453,15 +1462,16 @@ public class SplendorPanel extends JPanel {
 						getImage().getScaledInstance(
 								ONEHUNDRED,
 								ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+						java.awt.Image.SCALE_SMOOTH);
 				iLowCard2 = new ImageIcon(temp1);
 				lowCard2.setIcon(iLowCard2);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1495,8 +1505,8 @@ public class SplendorPanel extends JPanel {
 						getImageFile());
 				Image temp1 = iLowCard3.
 						getImage().getScaledInstance(
-								ONEHUNDRED, ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+						ONEHUNDRED, ONEFORTY,
+						java.awt.Image.SCALE_SMOOTH);
 				iLowCard3 = new ImageIcon(temp1);
 				lowCard3.setIcon(iLowCard3);
 				turn = true;
@@ -1512,24 +1522,25 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getLowCard3())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setLowCard3(
-						game.takeCard(SplendorGame.LOW_DECK));
+					game.takeCard(SplendorGame.LOW_DECK));
 				iLowCard3 = new ImageIcon(
-						game.getLowCard3().getImageFile());
+					game.getLowCard3().getImageFile());
 				Image temp1 = iLowCard3.
 						getImage().getScaledInstance(
 								ONEHUNDRED,
 								ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+						java.awt.Image.SCALE_SMOOTH);
 				iLowCard3 = new ImageIcon(temp1);
 				lowCard3.setIcon(iLowCard3);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1556,14 +1567,14 @@ public class SplendorPanel extends JPanel {
 						"You bought the card!");
 
 				game.setLowCard4(
-						game.takeCard(SplendorGame.LOW_DECK));
+					game.takeCard(SplendorGame.LOW_DECK));
 
 				iLowCard4 = new ImageIcon(
-						game.getLowCard4().getImageFile());
+					game.getLowCard4().getImageFile());
 				Image temp1 = iLowCard4.
 						getImage().getScaledInstance(
-								ONEHUNDRED, ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+							ONEHUNDRED, ONEFORTY,
+						java.awt.Image.SCALE_SMOOTH);
 				iLowCard4 = new ImageIcon(temp1);
 				lowCard4.setIcon(iLowCard4);
 				turn = true;
@@ -1579,23 +1590,24 @@ public class SplendorPanel extends JPanel {
 			// if the player is not already holding a card
 			if (game.holdCard(game.getLowCard4())) {
 				JOptionPane.showMessageDialog(null,
-						"You are now holding the card!");
+					"You are now holding the card!");
 				game.setLowCard4(
-						game.takeCard(SplendorGame.LOW_DECK));
+					game.takeCard(SplendorGame.LOW_DECK));
 				iLowCard4 = new ImageIcon(
-						game.getLowCard4().getImageFile());
+					game.getLowCard4().getImageFile());
 				Image temp1 = iLowCard4.getImage().
 						getScaledInstance(ONEHUNDRED,
 								ONEFORTY,
-								java.awt.Image.SCALE_SMOOTH);
+						java.awt.Image.SCALE_SMOOTH);
 				iLowCard4 = new ImageIcon(temp1);
 				lowCard4.setIcon(iLowCard4);
 				turn = true;
 				// if the player cannot hold the card
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"You can only hold one card"
-								+ "at time!\nYou are already holding a card!");
+					"You can only hold one card"
+					+ "at time!\nYou are already"
+					+ "holding a card!");
 			}
 		}
 		return turn;
@@ -1612,16 +1624,16 @@ public class SplendorPanel extends JPanel {
 					"You are not holding a card");
 		} else {
 			int checkBuy = JOptionPane.showConfirmDialog(null,
-					"Would you like to buy your held card?");
+				"Would you like to buy your held card?");
 			if (checkBuy == JOptionPane.YES_OPTION) {
 				if (game.buyResourceCard(game.
-						getPlayers()[0].getHoldCard())) {
+					getPlayers()[0].getHoldCard())) {
 					JOptionPane.showMessageDialog(null,
 							"You bought the card!");
 					turn = true;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"You cannot buy that card");
+						"You cannot buy that card");
 				}
 			}
 		}
@@ -1639,16 +1651,16 @@ public class SplendorPanel extends JPanel {
 					"You are not holding a card");
 		} else {
 			int checkBuy = JOptionPane.showConfirmDialog(null,
-					"Would you like to buy your held card?");
+				"Would you like to buy your held card?");
 			if (checkBuy == JOptionPane.YES_OPTION) {
 				if (game.buyResourceCard(game.
-						getPlayers()[1].getHoldCard())) {
+					getPlayers()[1].getHoldCard())) {
 					JOptionPane.showMessageDialog(null,
 							"You bought the card!");
 					turn = true;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"You cannot buy that card");
+						"You cannot buy that card");
 				}
 			}
 		}
@@ -1666,16 +1678,16 @@ public class SplendorPanel extends JPanel {
 					"You are not holding a card");
 		} else {
 			int checkBuy = JOptionPane.showConfirmDialog(null,
-					"Would you like to buy your held card?");
+				"Would you like to buy your held card?");
 			if (checkBuy == JOptionPane.YES_OPTION) {
 				if (game.buyResourceCard(game.
-						getPlayers()[2].getHoldCard())) {
+					getPlayers()[2].getHoldCard())) {
 					JOptionPane.showMessageDialog(null,
 							"You bought the card!");
 					turn = true;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"You cannot buy that card");
+						"You cannot buy that card");
 				}
 			}
 		}
@@ -1693,17 +1705,17 @@ public class SplendorPanel extends JPanel {
 					"You are not holding a card");
 		} else {
 			int checkBuy = JOptionPane.
-					showConfirmDialog(null,
-							"Would you like to buy your held card?");
+				showConfirmDialog(null,
+				"Would you like to buy your held card?");
 			if (checkBuy == JOptionPane.YES_OPTION) {
 				if (game.buyResourceCard(game.
-						getPlayers()[THREE].getHoldCard())) {
+					getPlayers()[THREE].getHoldCard())) {
 					JOptionPane.showMessageDialog(null,
 							"You bought the card!");
 					turn = true;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"You cannot buy that card");
+						"You cannot buy that card");
 				}
 			}
 		}
@@ -1775,18 +1787,24 @@ public class SplendorPanel extends JPanel {
 	 * Plays a song as background music for the game.
 	 * @param choice which music to play.
 	 */
-	private void playMusic(int choice) {
+	private void playMusic(final int choice) {
 		if (choice == 1) {
 			try {
-				AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("buy.wav"));
-				DataLine.Info info = new DataLine.Info(Clip.class, audioStream.getFormat());
+				AudioInputStream audioStream = AudioSystem
+					.getAudioInputStream(
+						new File("buy.wav"));
+				DataLine.Info info = new DataLine
+					.Info(Clip.class,
+						audioStream.getFormat());
 				Clip mus = (Clip) AudioSystem.getLine(info);
 				mus.open(audioStream);
 				mus.start();
 			} catch (IOException ex) {
 				System.out.println("1riuvnreuvnuergivimn");
 
-				JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Music file"
+					+ "not found", "ERROR: Invalid file",
+					JOptionPane.ERROR_MESSAGE);
 				System.out.println("1");
 
 			} catch (LineUnavailableException exc) {
@@ -2029,12 +2047,18 @@ public class SplendorPanel extends JPanel {
 					JFrame frame = new JFrame("Help");
 					JPanel panel = new JPanel();
 					JTextPane area = new JTextPane();
-					area.setPreferredSize(new Dimension(500, 600));
-					JScrollPane scroll = new JScrollPane(area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+					area.setPreferredSize(new
+							Dimension(500, 600));
+					JScrollPane scroll = new JScrollPane(
+						area, JScrollPane.
+						VERTICAL_SCROLLBAR_ALWAYS,
+						JScrollPane
+						.HORIZONTAL_SCROLLBAR_NEVER);
 					//scroll.setEditable(false);
 					panel.add(scroll);
 					frame.add(panel);
-					Scanner scan = new Scanner(new File("help.txt"));
+					Scanner scan = new Scanner(
+							new File("help.txt"));
 					String content = "";
 					while (scan.hasNextLine()) {
 						content += scan.nextLine();
@@ -2046,7 +2070,10 @@ public class SplendorPanel extends JPanel {
 					frame.setVisible(true);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(null, "Could not find help file", "ERROR: File not found", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,
+						"Could not find help file",
+						"ERROR: File not found", 
+						JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}
@@ -2055,20 +2082,33 @@ public class SplendorPanel extends JPanel {
 				
 				if (!playingMusic) {
 					try {
-						AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("music.wav"));
-						DataLine.Info info = new DataLine.Info(Clip.class, audioStream.getFormat());
-						clip = (Clip)AudioSystem.getLine(info);
+						AudioInputStream audioStream =
+							AudioSystem.
+							getAudioInputStream(
+							new File("music.wav"));
+						DataLine.Info info =
+							new DataLine.Info(
+							Clip.class, audioStream.
+							getFormat());
+						clip = (Clip) AudioSystem.
+								getLine(info);
 						clip.open(audioStream);
 						clip.start();
 						playingMusic = true;
 					} catch (IOException ex) {
-						JOptionPane.showMessageDialog(null, "Music file not found", "ERROR: Invalid file", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(
+							null, "Music file not"
+							+ "found", "ERROR:"
+							+ "Invalid"
+							+ "file", JOptionPane
+							.ERROR_MESSAGE);
 						System.out.println("1");
 
 					} catch (LineUnavailableException exc) {
 						System.out.println("2");
 
-					} catch (UnsupportedAudioFileException exce) {
+					} catch (UnsupportedAudioFileException
+							exce) {
 						System.out.println("3");
 					}
 				} else {
@@ -2131,7 +2171,8 @@ public class SplendorPanel extends JPanel {
 					area.setEditable(false);
 					panel.add(area);
 					frame.add(panel);
-					Scanner scan = new Scanner(new File("help.txt"));
+					Scanner scan = new Scanner(
+							new File("help.txt"));
 					String content = "";
 					while (scan.hasNextLine()) {
 						content += scan.nextLine();
@@ -2143,21 +2184,27 @@ public class SplendorPanel extends JPanel {
 					frame.setVisible(true);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(null, "Could not find help file", "ERROR: File not found", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,
+						"Could not find help file",
+						"ERROR: File not found",
+						JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}
 
 			if (code == KeyEvent.VK_Q) {
-				int decision = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Quit", JOptionPane.INFORMATION_MESSAGE);
+				int decision = JOptionPane.showConfirmDialog(
+					null, "Are you sure you want to quit?",
+					"Quit",
+					JOptionPane.INFORMATION_MESSAGE);
 				if (decision == JOptionPane.OK_OPTION) {
 					System.exit(0);
 				}
 			}
 		}
 		@Override
-		public void keyPressed(KeyEvent e) { }
+		public void keyPressed(final KeyEvent e) { }
 		@Override
-		public void keyReleased(KeyEvent e) { }
+		public void keyReleased(final KeyEvent e) { }
 	}
 }

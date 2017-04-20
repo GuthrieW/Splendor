@@ -1,4 +1,4 @@
-package Splendor;
+package splendor;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -43,11 +43,12 @@ public final class SplendorGUI {
 		frame.setJMenuBar(menus);
 		menus.add(menu);
 
-		SplendorPanel panel = new SplendorPanel(quitItem, openRules, song);
+		SplendorPanel panel = new SplendorPanel(
+				quitItem, openRules, song);
 		frame.getContentPane().add(panel);
 		frame.setResizable(true);
 		frame.pack();
-		frame.setSize(1200,1500);
+		frame.setSize(1200, 1500);
 		frame.setVisible(true);
 	}
 }
