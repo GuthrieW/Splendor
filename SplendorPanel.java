@@ -455,8 +455,8 @@ public class SplendorPanel extends JPanel {
 	 * @return a jpanel of the cards.
 	 */
 	private JPanel setupButtons() {
-		JPanel cardPanel = new JPanel();
-		cardPanel.setLayout(new GridLayout(THREE, FIVE));
+		JPanel cPanel = new JPanel();
+		cPanel.setLayout(new GridLayout(THREE, FIVE));
 		// instantiate noble1 noble1 does not require an
 		// action listener add noble1 to buttonPanel
 		noble1 = new JButton();
@@ -465,7 +465,7 @@ public class SplendorPanel extends JPanel {
 			ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		inoble1 = new ImageIcon(temp1);
 		noble1.setIcon(inoble1);
-		cardPanel.add(noble1);
+		cPanel.add(noble1);
 		// instantiate highCard1 and add an action listener
 		// add highCard1 to buttonPanel
 		highCard1 = new JButton();
@@ -475,7 +475,7 @@ public class SplendorPanel extends JPanel {
 		iHighCard1 = new ImageIcon(temp1);
 		highCard1.setIcon(iHighCard1);
 		highCard1.addActionListener(listener);
-		cardPanel.add(highCard1);
+		cPanel.add(highCard1);
 		// instantiate highCard2 and add an action listener
 		highCard2 = new JButton();
 		iHighCard2 = new ImageIcon(game.getHighCard2().getImageFile());
@@ -484,7 +484,7 @@ public class SplendorPanel extends JPanel {
 		iHighCard2 = new ImageIcon(temp1);
 		highCard2.setIcon(iHighCard2);
 		highCard2.addActionListener(listener);
-		cardPanel.add(highCard2);
+		cPanel.add(highCard2);
 		// instantiate highCard3 and add an action listener
 		highCard3 = new JButton();
 		iHighCard3 = new ImageIcon(game.getHighCard3().getImageFile());
@@ -493,7 +493,7 @@ public class SplendorPanel extends JPanel {
 		iHighCard3 = new ImageIcon(temp1);
 		highCard3.setIcon(iHighCard3);
 		highCard3.addActionListener(listener);
-		cardPanel.add(highCard3);
+		cPanel.add(highCard3);
 		// instantiate highCard4 and add an action listener
 		highCard4 = new JButton();
 		iHighCard4 = new ImageIcon(game.getHighCard4().getImageFile());
@@ -502,7 +502,7 @@ public class SplendorPanel extends JPanel {
 		iHighCard4 = new ImageIcon(temp1);
 		highCard4.setIcon(iHighCard4);
 		highCard4.addActionListener(listener);
-		cardPanel.add(highCard4);
+		cPanel.add(highCard4);
 		// instantiate noble2 noble1 does not require an action listener
 		// add noble2 to buttonPanel
 		noble2 = new JButton();
@@ -511,7 +511,7 @@ public class SplendorPanel extends JPanel {
 			ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		inoble2 = new ImageIcon(temp1);
 		noble2.setIcon(inoble2);
-		cardPanel.add(noble2);
+		cPanel.add(noble2);
 		// instantiate middleCard1 and add an action listener
 		middleCard1 = new JButton(); // add middleCard1 to buttonPanel
 		iMiddleCard1 = new ImageIcon(
@@ -521,7 +521,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard1 = new ImageIcon(temp1);
 		middleCard1.setIcon(iMiddleCard1);
 		middleCard1.addActionListener(listener);
-		cardPanel.add(middleCard1);
+		cPanel.add(middleCard1);
 		// instantiate middleCard2 and add an action listener
 		// add middleCard2 to buttonPanel
 		middleCard2 = new JButton();
@@ -532,7 +532,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard2 = new ImageIcon(temp1);
 		middleCard2.setIcon(iMiddleCard2);
 		middleCard2.addActionListener(listener);
-		cardPanel.add(middleCard2);
+		cPanel.add(middleCard2);
 		// instantiate middleCard3 and add an action listener
 		// add middleCard3 to buttonPanel
 		middleCard3 = new JButton();
@@ -543,7 +543,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard3 = new ImageIcon(temp1);
 		middleCard3.setIcon(iMiddleCard3);
 		middleCard3.addActionListener(listener);
-		cardPanel.add(middleCard3);
+		cPanel.add(middleCard3);
 		// instantiate middleCard4 and add an action listener
 		// add middleCard4 to buttonPanel
 		middleCard4 = new JButton();
@@ -554,7 +554,7 @@ public class SplendorPanel extends JPanel {
 		iMiddleCard4 = new ImageIcon(temp1);
 		middleCard4.setIcon(iMiddleCard4);
 		middleCard4.addActionListener(listener);
-		cardPanel.add(middleCard4);
+		cPanel.add(middleCard4);
 		// instantiate noble3 noble1 does not require an action listener
 		// add noble2 to buttonPanel
 		noble3 = new JButton();
@@ -563,7 +563,7 @@ public class SplendorPanel extends JPanel {
 			ONEFIFTY, ONEFIFTY, java.awt.Image.SCALE_SMOOTH);
 		inoble3 = new ImageIcon(temp1);
 		noble3.setIcon(inoble3);
-		cardPanel.add(noble3);
+		cPanel.add(noble3);
 		// instantiate lowCard1 and add an action listener
 		lowCard1 = new JButton();
 		ilowCard1 = new ImageIcon(game.getLowCard1().getImageFile());
@@ -572,7 +572,7 @@ public class SplendorPanel extends JPanel {
 		ilowCard1 = new ImageIcon(temp1);
 		lowCard1.setIcon(ilowCard1);
 		lowCard1.addActionListener(listener);
-		cardPanel.add(lowCard1);
+		cPanel.add(lowCard1);
 		// instantiate lowCard2 and add an action listener
 		lowCard2 = new JButton();
 		iLowCard2 = new ImageIcon(game.getLowCard2().getImageFile());
@@ -581,7 +581,7 @@ public class SplendorPanel extends JPanel {
 		iLowCard2 = new ImageIcon(temp1);
 		lowCard2.setIcon(iLowCard2);
 		lowCard2.addActionListener(listener);
-		cardPanel.add(lowCard2);
+		cPanel.add(lowCard2);
 		// instantiate lowCard3 and add an action listener
 		lowCard3 = new JButton();
 		iLowCard3 = new ImageIcon(game.getLowCard3().getImageFile());
@@ -590,7 +590,7 @@ public class SplendorPanel extends JPanel {
 		iLowCard3 = new ImageIcon(temp1);
 		lowCard3.setIcon(iLowCard3);
 		lowCard3.addActionListener(listener);
-		cardPanel.add(lowCard3);
+		cPanel.add(lowCard3);
 		// instantiate lowCard4 and add an action listener
 		lowCard4 = new JButton();
 		iLowCard4 = new ImageIcon(game.getLowCard4().getImageFile());
@@ -599,8 +599,8 @@ public class SplendorPanel extends JPanel {
 		iLowCard4 = new ImageIcon(temp1);
 		lowCard4.setIcon(iLowCard4);
 		lowCard4.addActionListener(listener);
-		cardPanel.add(lowCard4);
-		return cardPanel;
+		cPanel.add(lowCard4);
+		return cPanel;
 	}
 
 	/**
@@ -2058,18 +2058,20 @@ public class SplendorPanel extends JPanel {
 					panel.add(scroll);
 					frame.add(panel);
 					Scanner scan = new Scanner(
-							new File("help.txt"));
+						new File("help.txt"), "UTF-8");
 					String content = "";
+					StringBuilder sbContent = new 
+							StringBuilder(content);
 					while (scan.hasNextLine()) {
-						content += scan.nextLine();
-						content += "\n";
+						sbContent.append(scan.
+								nextLine());
+						sbContent.append("\n");
 					}
-					area.setText(content);
+					area.setText(sbContent.toString());
 					scan.close();
 					frame.pack();
 					frame.setVisible(true);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null,
 						"Could not find help file",
 						"ERROR: File not found", 
@@ -2172,18 +2174,20 @@ public class SplendorPanel extends JPanel {
 					panel.add(area);
 					frame.add(panel);
 					Scanner scan = new Scanner(
-							new File("help.txt"));
+						new File("help.txt"), "UTF-8");
 					String content = "";
+					StringBuilder sbContent = new 
+							StringBuilder(content);
 					while (scan.hasNextLine()) {
-						content += scan.nextLine();
-						content += "\n";
+						sbContent.append(scan.
+								nextLine());
+						sbContent.append("\n");
 					}
-					area.setText(content);
+					area.setText(sbContent.toString());
 					scan.close();
 					frame.pack();
 					frame.setVisible(true);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null,
 						"Could not find help file",
 						"ERROR: File not found",

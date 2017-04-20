@@ -217,7 +217,7 @@ public class SplendorGame {
 		int highest = 0;
 		for (int i = 0; i < numPlayers; i++) {
 			if (players[i].getPoints() > highest) {
-				highest = players[i].getPoints();
+//				highest = players[i].getPoints();
 				return i;
 			}
 		}
@@ -1190,9 +1190,9 @@ public class SplendorGame {
 	 * Set the array of player objects to an array of players.
 	 * @param pPlayers an array of player objects.
 	 */
-	public void setPlayers(final Player[] pPlayers) {
-		this.players = pPlayers;
-	}
+//	public void setPlayers(final Player[] pPlayers) {
+//		this.players = pPlayers;
+//	}
 
 	/**
 	 * Return the game status.

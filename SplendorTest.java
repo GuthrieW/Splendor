@@ -87,10 +87,7 @@ public class SplendorTest {
 		
 		tempGame.setNumPlayers(tempGame.getNumPlayers());
 		
-		tempGame.setPlayers(tempGame.getPlayers());
-		
 		tempGame.setGameStatus("IN PROGRESS");
-		tempGame.getStatus();
 	}
 	
 	/** tests the red card methods. */
