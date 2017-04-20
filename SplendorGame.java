@@ -266,15 +266,15 @@ public class SplendorGame {
 						.getPrestigePoints());
 				temp.set(i, null);
 
-				if (temp.get(1) == null) {
+				if (temp.get(0) == null) {
 					noble1 = null;
 				}
 
-				if (temp.get(2) == null) {
+				if (temp.get(1) == null) {
 					noble2 = null;
 				}
 
-				if (temp.get(THREE) == null) {
+				if (temp.get(2) == null) {
 					noble3 = null;
 				}
 				bought = true;

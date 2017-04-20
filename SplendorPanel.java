@@ -809,6 +809,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean highCard1Button() {
+		Card card = null;
 		boolean turn = false;
 		// ask the player what they want to do with the card
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
@@ -825,8 +826,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setHighCard1(game.takeCard(
-						SplendorGame.HIGH_DECK));
+				if ((card = game.takeCard(SplendorGame.HIGH_DECK)) == null) {
+					highCard1.setIcon(null);
+					highCard1.setEnabled(false);
+				} else {
+					game.setHighCard1(game.takeCard(SplendorGame.HIGH_DECK));
 
 				iHighCard1 = new ImageIcon(game.getHighCard1()
 						.getImageFile());
@@ -836,6 +840,7 @@ public class SplendorPanel extends JPanel {
 							.Image.SCALE_SMOOTH);
 				iHighCard1 = new ImageIcon(temp1);
 				highCard1.setIcon(iHighCard1);
+			}
 				turn = true;
 			} else { // if the player cannot buy the card
 				JOptionPane.showMessageDialog(null,
@@ -870,6 +875,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean highCard2Button() {
+		Card card = null;
 		boolean turn = false;
 		// ask the player what they want to do with the card
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
@@ -886,8 +892,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setHighCard2(game.takeCard(
-						SplendorGame.HIGH_DECK));
+				if ((card = game.takeCard(SplendorGame.HIGH_DECK)) == null) {
+					highCard2.setIcon(null);
+					highCard2.setEnabled(false);
+				} else {
+					game.setHighCard2(game.takeCard(SplendorGame.HIGH_DECK));
 
 				iHighCard2 = new ImageIcon(game.getHighCard2()
 						.getImageFile());
@@ -897,6 +906,7 @@ public class SplendorPanel extends JPanel {
 					java.awt.Image.SCALE_SMOOTH);
 				iHighCard2 = new ImageIcon(temp1);
 				highCard2.setIcon(iHighCard2);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -933,6 +943,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean highCard3Button() {
+		Card card = null;
 		boolean turn = false;
 		// ask the player what they want to do with the card
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
@@ -949,8 +960,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setHighCard3(game.takeCard(
-						SplendorGame.HIGH_DECK));
+				if ((card = game.takeCard(SplendorGame.HIGH_DECK)) == null) {
+					highCard3.setIcon(null);
+					highCard3.setEnabled(false);
+				} else {
+					game.setHighCard3(game.takeCard(SplendorGame.HIGH_DECK));
 
 				iHighCard3 = new ImageIcon(game
 						.getHighCard3().getImageFile());
@@ -960,6 +974,7 @@ public class SplendorPanel extends JPanel {
 					java.awt.Image.SCALE_SMOOTH);
 				iHighCard3 = new ImageIcon(temp1);
 				highCard3.setIcon(iHighCard3);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -996,6 +1011,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean highCard4Button() {
+		Card card = null;
 		boolean turn = false;
 		// ask the player what they want to do with the card
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
@@ -1012,8 +1028,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setHighCard4(game.takeCard(
-						SplendorGame.HIGH_DECK));
+				if ((card = game.takeCard(SplendorGame.HIGH_DECK)) == null) {
+					highCard4.setIcon(null);
+					highCard4.setEnabled(false);
+				} else {
+					game.setHighCard4(game.takeCard(SplendorGame.HIGH_DECK));
 
 				iHighCard4 = new ImageIcon(game
 						.getHighCard4().getImageFile());
@@ -1023,6 +1042,7 @@ public class SplendorPanel extends JPanel {
 						java.awt.Image.SCALE_SMOOTH);
 				iHighCard4 = new ImageIcon(temp1);
 				highCard4.setIcon(iHighCard4);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1059,6 +1079,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean middleCard1Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1074,8 +1095,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setMiddleCard1(game.takeCard(
-						SplendorGame.MIDDLE_DECK));
+				if ((card = game.takeCard(SplendorGame.MIDDLE_DECK)) == null) {
+					middleCard1.setIcon(null);
+					middleCard1.setEnabled(false);
+				} else {
+					game.setMiddleCard1(game.takeCard(SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard1 = new ImageIcon(
 					game.getMiddleCard1().getImageFile());
@@ -1085,6 +1109,7 @@ public class SplendorPanel extends JPanel {
 					java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard1 = new ImageIcon(temp1);
 				middleCard1.setIcon(iMiddleCard1);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1121,6 +1146,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean middleCard2Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1136,8 +1162,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setMiddleCard2(game.takeCard(
-						SplendorGame.MIDDLE_DECK));
+				if ((card = game.takeCard(SplendorGame.MIDDLE_DECK)) == null) {
+					middleCard2.setIcon(null);
+					middleCard2.setEnabled(false);
+				} else {
+					game.setMiddleCard2(game.takeCard(SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard2 = new ImageIcon(
 					game.getMiddleCard2().getImageFile());
@@ -1147,6 +1176,7 @@ public class SplendorPanel extends JPanel {
 					java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard2 = new ImageIcon(temp1);
 				middleCard2.setIcon(iMiddleCard2);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1183,6 +1213,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean middleCard3Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1198,8 +1229,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setMiddleCard3(game.takeCard(
-						SplendorGame.MIDDLE_DECK));
+				if ((card = game.takeCard(SplendorGame.MIDDLE_DECK)) == null) {
+					middleCard3.setIcon(null);
+					middleCard3.setEnabled(false);
+				} else {
+					game.setMiddleCard3(game.takeCard(SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard3 = new ImageIcon(
 					game.getMiddleCard3().getImageFile());
@@ -1209,6 +1243,7 @@ public class SplendorPanel extends JPanel {
 					java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard3 = new ImageIcon(temp1);
 				middleCard3.setIcon(iMiddleCard3);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1245,6 +1280,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean middleCard4Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1260,8 +1296,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setMiddleCard4(game.takeCard(
-						SplendorGame.MIDDLE_DECK));
+				if ((card = game.takeCard(SplendorGame.MIDDLE_DECK)) == null) {
+					middleCard4.setIcon(null);
+					middleCard4.setEnabled(false);
+				} else {
+					game.setMiddleCard4(game.takeCard(SplendorGame.MIDDLE_DECK));
 
 				iMiddleCard4 = new ImageIcon(
 					game.getMiddleCard4().getImageFile());
@@ -1271,6 +1310,7 @@ public class SplendorPanel extends JPanel {
 					java.awt.Image.SCALE_SMOOTH);
 				iMiddleCard4 = new ImageIcon(temp1);
 				middleCard4.setIcon(iMiddleCard4);
+			}
 				turn = true;
 				// if the player cannot hold the card
 			} else {
@@ -1309,6 +1349,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean lowCard1Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1324,8 +1365,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setLowCard1(game.takeCard(
-						SplendorGame.LOW_DECK));
+				if ((card = game.takeCard(SplendorGame.LOW_DECK)) == null) {
+					lowCard1.setIcon(null);
+					lowCard1.setEnabled(false);
+				} else {
+					game.setLowCard1(game.takeCard(SplendorGame.LOW_DECK));
 
 				ilowCard1 = new ImageIcon(
 						game.getLowCard1().
@@ -1336,6 +1380,7 @@ public class SplendorPanel extends JPanel {
 								SCALE_SMOOTH);
 				ilowCard1 = new ImageIcon(temp1);
 				lowCard1.setIcon(ilowCard1);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1373,6 +1418,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean lowCard2Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1388,8 +1434,11 @@ public class SplendorPanel extends JPanel {
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
 
-				game.setLowCard2(game.takeCard(
-						SplendorGame.LOW_DECK));
+				if ((card = game.takeCard(SplendorGame.LOW_DECK)) == null) {
+					lowCard2.setIcon(null);
+					lowCard2.setEnabled(false);
+				} else {
+					game.setLowCard2(game.takeCard(SplendorGame.LOW_DECK));
 
 				iLowCard2 = new ImageIcon(game.
 						getLowCard2().getImageFile());
@@ -1399,6 +1448,7 @@ public class SplendorPanel extends JPanel {
 						java.awt.Image.SCALE_SMOOTH);
 				iLowCard2 = new ImageIcon(temp1);
 				lowCard2.setIcon(iLowCard2);
+			}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1437,6 +1487,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean lowCard3Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1451,9 +1502,11 @@ public class SplendorPanel extends JPanel {
 				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
-
-				game.setLowCard3(game.takeCard(
-						SplendorGame.LOW_DECK));
+				if ((card = game.takeCard(SplendorGame.LOW_DECK)) == null) {
+					lowCard3.setIcon(null);
+					lowCard3.setEnabled(false);
+				} else {
+					game.setLowCard3(game.takeCard(SplendorGame.LOW_DECK));
 
 				iLowCard3 = new ImageIcon(
 						game.getLowCard3().
@@ -1464,6 +1517,7 @@ public class SplendorPanel extends JPanel {
 						java.awt.Image.SCALE_SMOOTH);
 				iLowCard3 = new ImageIcon(temp1);
 				lowCard3.setIcon(iLowCard3);
+				}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
@@ -1501,6 +1555,7 @@ public class SplendorPanel extends JPanel {
 	 * @return whether or not player did an action.
 	 */
 	private boolean lowCard4Button() {
+		Card card = null;
 		boolean turn = false;
 		String[] cardOptions = {"BUY CARD", "HOLD CARD", "CANCEL" };
 		String answer = (String) JOptionPane.showInputDialog(null,
@@ -1515,18 +1570,21 @@ public class SplendorPanel extends JPanel {
 				playMusic(1);
 				JOptionPane.showMessageDialog(null,
 						"You bought the card!");
+				if ((card = game.takeCard(SplendorGame.LOW_DECK)) == null) {
+					lowCard4.setIcon(null);
+					lowCard4.setEnabled(false);
+				} else {
+					game.setLowCard4(game.takeCard(SplendorGame.LOW_DECK));
 
-				game.setLowCard4(
-					game.takeCard(SplendorGame.LOW_DECK));
-
-				iLowCard4 = new ImageIcon(
-					game.getLowCard4().getImageFile());
-				Image temp1 = iLowCard4.
+					iLowCard4 = new ImageIcon(
+							game.getLowCard4().getImageFile());
+					Image temp1 = iLowCard4.
 						getImage().getScaledInstance(
 							ONEHUNDRED, ONEFIFTEEN,
 						java.awt.Image.SCALE_SMOOTH);
-				iLowCard4 = new ImageIcon(temp1);
-				lowCard4.setIcon(iLowCard4);
+					iLowCard4 = new ImageIcon(temp1);
+					lowCard4.setIcon(iLowCard4);
+				}
 				turn = true;
 				// if the player cannot buy the card
 			} else {
